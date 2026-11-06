@@ -1,0 +1,23 @@
+# Local-only folders (see docs/agent/Constraints.md)
+_review/
+drafts/
+references/
+course-material/
+
+# Office lock files, temp and incomplete downloads
+~$*
+~WRL*.tmp
+*.tmp
+*.crdownload
+
+# Local rollback manifest (old paths include another student's file names)
+docs/agent/move_manifest.csv
+
+# Installers and large binaries
+*.exe
+
+# Editors / OS junk
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
