@@ -89,3 +89,31 @@ economics:                       # p.14
   salvage_fraction: 0.05
   discount_rate: 0.10
   life_years: 15
+
+# ---------------------------------------------------------------------------------------
+# Assumptions of the hourly simulation. None of these is stated in the final report, which sizes the
+# field on a daily total only; they are explicit so that the uncertainty analysis can vary them.
+# ---------------------------------------------------------------------------------------
+schedule:
+  # Hours of the day (IST, start of hour) over which each meal's steam is drawn. Table 4
+  # gives the energy of each meal but not when it is cooked.
+  morning: [6, 7]
+  lunch: [10, 11]
+  snacks: [15]
+  dinner: [17, 18]
+
+collector:
+  tracker: polar                 # single-axis, as in the final report (idealised polar tracker, see LIMITATIONS_AND_FUTURE_SCOPE.md)
+  aperture_area_m2: 11.65        # sizing aperture of the final report; the performance report's energy figure used 16 m2 (mirror area)
+  minimum_dni_w_m2: 200          # both reports count only hours above 200 W/m2
+  reflectivity: 0.92             # the value the final report actually multiplies by
+
+storage:
+  capacity_mj: 0.0               # none in the final report; swept in the sizing study
+  charge_efficiency: 0.95        # assumption
+  discharge_efficiency: 0.95     # assumption
+  standing_loss_per_hour: 0.005  # assumption: 0.5 % of the stored heat per hour
+  initial_fraction: 0.0
+
+backup:
+  stove_efficiency: 0.6          # the final report divides displaced LPG by 0.6 (p.13)
