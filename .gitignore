@@ -1,0 +1,60 @@
+# ---------------------------------------------------------------
+# Local-only material (kept on the author's machine, never published)
+# ---------------------------------------------------------------
+_review/
+drafts/
+references/
+course-material/
+
+# ---------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------
+# Data and run outputs (regenerate with the CLI)
+# ---------------------------------------------------------------
+data/raw/
+outputs/
+*.log
+
+# ---------------------------------------------------------------
+# Secrets
+# ---------------------------------------------------------------
+.env
+.env.*
+
+# ---------------------------------------------------------------
+# Office lock files, temp and incomplete downloads
+# ---------------------------------------------------------------
+~$*
+~WRL*.tmp
+*.tmp
+*.crdownload
+
+# Installers and large binaries
+*.exe
+
+# ---------------------------------------------------------------
+# Editors / OS junk
+# ---------------------------------------------------------------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
