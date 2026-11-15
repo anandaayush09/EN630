@@ -1,0 +1,91 @@
+# Inputs of the final report analysis, exactly as the report states them (page numbers refer to
+# reports/final_report.pdf). Nothing here is tuned: where the report is inconsistent,
+# the value that reproduces its printed result is used and the conflict is noted.
+# Units are in the key names.
+
+site:
+  latitude_deg: 19.15            # p.4, Hostel-17 IIT Bombay
+  longitude_deg: 72.95           # p.4
+  standard_longitude_deg: 82.5   # India standard meridian (course script, legacy/)
+
+design_day:                      # p.10, "cos theta is calculated for May 17 at 12.30 p.m."
+  day_of_year: 137
+  clock_time_h: 12.5
+  tilt_deg: 19.076               # p.10 (beta = phi = 19.076; note site latitude above is 19.15)
+  latitude_used_deg: 19.076
+  azimuth_deg: 0.0
+  hour_angle_reported_deg: -1.144566
+
+optics:
+  reflector_area_m2: 11.65       # p.10, used for sizing
+  receiver_area_m2: 0.1294       # p.10
+  reflectivity_text: 0.9         # p.10 lists 0.9 ...
+  reflectivity_used: 0.92        # ... but the product 0.943822 x 0.92 x 0.7 uses 0.92
+  receiver_absorptivity: 0.7     # p.10
+  design_dni_w_m2: 665           # p.10
+
+receiver:                        # p.10
+  convection_coeff_w_m2k: 25.0
+  receiver_temperature_k: 473.0
+  ambient_temperature_k: 301.0
+  emissivity: 0.2
+  stefan_boltzmann: 5.67e-8
+  sky_coefficient: 0.0553        # printed as 0.00553; only 0.0553 gives the printed 298 K
+  sky_offset_k: 10.0
+
+sizing:                          # p.12
+  design_hours_per_day: 7        # unlabelled factor 7 in the printed product
+  receiver_efficiency_used: 0.8626   # the sizing product uses 0.8626, not the derived 0.8687
+  seconds_per_hour: 3600
+
+load:                            # pp.11-12 and Table 4
+  ambient_c: 25.0
+  rice_pot:
+    water_kg: 28.0               # p.11 swaps the water/rice quantities in two places; the
+    rice_kg: 20.0                # printed result 17.97 MJ needs 28 kg water and 20 kg rice
+    cp_water_kj_kgk: 4.186       # not stated in the report (assumed standard value)
+    cp_rice_kj_kgk: 1.8
+    cook_temperature_c: 120.0
+    reaction_kj_per_kg_rice: 170.0
+    pots_lunch: 7                # 140 kg rice = 7 x 20 kg
+    pots_dinner: 5               # 100 kg rice = 5 x 20 kg
+    reported_pot_mj: 17.97
+  milk:
+    volume_l: 150.0
+    density_kg_l: 1.035
+    cp_kj_kgk: 3.85
+    final_temperature_c: 95.0
+    batches: 2                   # morning and dinner (Table 4)
+    snack_milk_mj: 20.0          # Table 4 only; no derivation in the text
+  hot_water:
+    mass_kg: 100.0               # the printed volume 100 L x 1.035 x 3.85 gives 29.89, not 31.40;
+    cp_kj_kgk: 4.186             # 100 kg x 4.186 reproduces the printed 31.40 MJ
+    final_temperature_c: 100.0
+    meals: 4
+  curry_and_dal:
+    cylinders_per_day: 1.5       # p.12
+    stove_efficiency: 0.6
+    meals: 2
+  safety_factor: 1.1
+  pot_efficiency: 0.72
+
+fuel:                            # p.5 and p.13
+  cylinder_mass_kg: 14.2
+  calorific_value_mj_kg: 46.1
+  carbon_mass_per_propane_mass: 0.8181818181818182   # 36 / 44
+  co2_per_carbon_mass: 3.6666666666666665            # 44 / 12
+  cylinders_per_day_now: 9
+  cylinder_price_inr: 1345       # p.14
+  cylinders_per_year_implied: 975   # p.13 CO2 line (42.6 kg x 975)
+
+economics:                       # p.14
+  number_of_dishes: 14
+  dish_area_for_cost_m2: 16.0
+  cost_per_m2_inr: 25000.0
+  retrofit_fraction: 0.30
+  retrofit_in_reported_total: false   # "56 lakh" equals 14 x 400,000 only
+  annual_fuel_saving_inr: 1311631.57
+  om_fraction: 0.02
+  salvage_fraction: 0.05
+  discount_rate: 0.10
+  life_years: 15
