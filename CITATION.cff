@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Solar thermal cooking with Scheffler dishes for IIT Bombay Hostel-17 (EN 630, Group 05)"
+type: software
+authors:
+  - family-names: Anand
+    given-names: Aayush M
+license: MIT
+repository-code: "https://github.com/anandaayush09/EN630"
+abstract: >-
+  Course project for EN 630 (Utilisation of Solar Thermal Energy), IIT Bombay.
+  Sizing and techno-economic assessment of a Scheffler-dish steam system to
+  replace part of the LPG used for cooking in a hostel mess.
+keywords:
+  - solar thermal
+  - Scheffler dish
+  - process heat
+  - techno-economic analysis
