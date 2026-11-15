@@ -1,0 +1,74 @@
+{
+  "source": "PVGIS typical meteorological year (EC Joint Research Centre)",
+  "retrieved": "2026-11-12",
+  "site": {
+    "name": "IIT Bombay, Mumbai",
+    "latitude": 19.15,
+    "longitude": 72.95
+  },
+  "inputs": {
+    "radiation_db": "PVGIS-ERA5",
+    "meteo_db": "ERA5",
+    "year_min": 2005,
+    "year_max": 2023,
+    "use_horizon": true,
+    "horizon_db": "DEM-calculated"
+  },
+  "location_used": {
+    "latitude": 19.15,
+    "longitude": 72.95,
+    "elevation": 5.0,
+    "irradiance_time_offset": 0.5
+  },
+  "months_selected": [
+    {
+      "month": 1,
+      "year": 2015
+    },
+    {
+      "month": 2,
+      "year": 2007
+    },
+    {
+      "month": 3,
+      "year": 2007
+    },
+    {
+      "month": 4,
+      "year": 2009
+    },
+    {
+      "month": 5,
+      "year": 2010
+    },
+    {
+      "month": 6,
+      "year": 2013
+    },
+    {
+      "month": 7,
+      "year": 2005
+    },
+    {
+      "month": 8,
+      "year": 2013
+    },
+    {
+      "month": 9,
+      "year": 2007
+    },
+    {
+      "month": 10,
+      "year": 2008
+    },
+    {
+      "month": 11,
+      "year": 2006
+    },
+    {
+      "month": 12,
+      "year": 2015
+    }
+  ],
+  "index": "UTC, hourly, relabelled to year 1990 by PVGIS"
+}
