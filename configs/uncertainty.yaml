@@ -1,0 +1,77 @@
+# Uncertain inputs of the techno-economic study and the ranges they are varied over.
+# Each entry: distribution, parameters, and why those numbers. "mode" is the value used in the
+# deterministic base case. Where a range is a judgement rather than data, it says so.
+
+parameters:
+  weather_year:
+    dist: integer_uniform
+    low: 2005
+    high: 2023
+    mode: 2014
+    why: Real PVGIS-ERA5 years; the annual beam energy of these years spans 1876 to 2106 kWh/m2.
+  optical_multiplier:
+    dist: triangular
+    low: 0.85
+    mode: 1.0
+    high: 1.05
+    why: Scales the reflectivity of 0.92 used in the final report. 0.978 reproduces the 0.90 listed in the text; the lower end allows for soiling and mirror ageing. Judgement.
+  dinner_shift_h:
+    dist: integer_uniform
+    low: -2
+    high: 1
+    mode: 0
+    why: The final report gives no meal hours; the assumed dinner hours 17 and 18 are moved by up to two hours earlier or one later. Judgement.
+  storage_efficiency:
+    dist: uniform
+    low: 0.85
+    high: 0.98
+    mode: 0.95
+    why: Charging and discharging efficiency of a steam store (applied to both). Judgement, no source.
+  standing_loss_per_hour:
+    dist: uniform
+    low: 0.0
+    high: 0.02
+    mode: 0.005
+    why: Fraction of stored heat lost per hour. Judgement, no source.
+  lpg_price_inr:
+    dist: triangular
+    low: 1100.0
+    mode: 1345.0
+    high: 1800.0
+    why: The performance report used 950 and the final report 1345 per cylinder; the upper bound allows for price rises. Judgement.
+  lpg_escalation:
+    dist: triangular
+    low: 0.0
+    mode: 0.0
+    high: 0.08
+    why: Yearly rise of the LPG price. The final report assumes none (mode 0); 8 percent is an upper bound.
+  dish_cost_per_m2_inr:
+    dist: triangular
+    low: 18000.0
+    mode: 25000.0
+    high: 32000.0
+    why: The performance report used 18,000 and the final report 25,000 per m2 (government single-axis tracking figure). Upper bound is a judgement.
+  retrofit_fraction:
+    dist: uniform
+    low: 0.15
+    high: 0.30
+    mode: 0.30
+    why: The final report states 30 percent of capital cost for kitchen retrofit but leaves it out of its total; here it is included. Lower bound is a judgement.
+  storage_cost_per_mj_inr:
+    dist: triangular
+    low: 500.0
+    mode: 1000.0
+    high: 2000.0
+    why: PLACEHOLDER engineering estimate for a pressurised steam accumulator (about 5 m3 of water per GJ); no quotation available. To be replaced by supplier prices.
+  discount_rate:
+    dist: uniform
+    low: 0.08
+    high: 0.12
+    mode: 0.10
+    why: The final report uses 10 percent; plus and minus two points.
+
+economics_fixed:
+  dish_area_m2: 16.0             # final report cost basis
+  om_fraction: 0.02              # final report
+  salvage_fraction: 0.05         # final report
+  life_years: 15                 # final report
