@@ -1,0 +1,12 @@
+# Allow-list: nothing goes into the image unless it is named here.
+*
+!pyproject.toml
+!uv.lock
+!README.md
+!src/
+!configs/
+!data/
+!app/
+
+# Caches inside the allowed folders
+**/__pycache__/

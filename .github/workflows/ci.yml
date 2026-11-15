@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --group app
+
+      - name: Lint
+        run: |
+          uv run ruff check src tests app
+          uv run ruff format --check src tests app
+
+      - name: Type check
+        run: uv run pyright
+
+      - name: Tests with coverage
+        run: uv run pytest --cov=en630 --cov-report=term-missing -q
+
+      - name: Execute the notebooks
+        run: uv run pytest --nbmake notebooks -q
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the image
+        run: docker build -t en630 .
